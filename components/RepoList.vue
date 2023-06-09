@@ -29,7 +29,10 @@ const { data: repos, error } = await useAsyncData(async () => {
           Authorization: `Bearer ${accessToken}`,
           'User-Agent': 'Nuxt prerenderer'
         }
-      }).catch(() => [])
+      }).catch((e) => {
+        console.error(e)
+        return []
+      })
 
       if (data.length) {
         repos.push(...data.filter(r => r.stargazers_count > 30 && !r.fork))
@@ -45,7 +48,10 @@ const { data: repos, error } = await useAsyncData(async () => {
         Authorization: `Bearer ${accessToken}`,
         'User-Agent': 'Nuxt prerenderer'
       }
-    }).catch(() => null)
+    }).catch((e) => {
+      console.error(e)
+      return null
+    })
     
     if (data) { repos.push(data) }
   }
