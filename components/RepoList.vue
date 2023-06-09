@@ -1,5 +1,10 @@
 <script setup lang="ts">
 const accessToken = useRuntimeConfig().githubToken
+
+if (process.server && !accessToken) {
+  throw new Error('Missing GitHub access token')
+}
+
 const { data: repos } = await useAsyncData(async () => {
   const formatter = Intl.NumberFormat('en-GB', {
     notation: 'compact',
@@ -19,7 +24,10 @@ const { data: repos } = await useAsyncData(async () => {
           page,
           per_page: 100
         },
-        headers: { Authorization: `Bearer ${accessToken}` }
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+          'User-Agent': 'Nuxt prerenderer'
+        }
       }).catch(() => [])
 
       if (data.length) {
@@ -31,7 +39,10 @@ const { data: repos } = await useAsyncData(async () => {
 
   for (const module of modules) {
     const data = await $fetch<any[]>(`https://api.github.com/repos/nuxt-modules/${module}`, {
-      headers: { Authorization: `Bearer ${accessToken}` }
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+        'User-Agent': 'Nuxt prerenderer'
+      }
     }).catch(() => null)
     
     if (data) { repos.push(data) }
