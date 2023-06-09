@@ -25,6 +25,7 @@ const { data: repos, error } = await useAsyncData(async () => {
           per_page: 100
         },
         headers: {
+          Accept: 'application/vnd.github.v3+json',
           Authorization: `Bearer ${accessToken}`,
           'User-Agent': 'Nuxt prerenderer'
         }
@@ -40,6 +41,7 @@ const { data: repos, error } = await useAsyncData(async () => {
   for (const module of modules) {
     const data = await $fetch<any[]>(`https://api.github.com/repos/nuxt-modules/${module}`, {
       headers: {
+        Accept: 'application/vnd.github.v3+json',
         Authorization: `Bearer ${accessToken}`,
         'User-Agent': 'Nuxt prerenderer'
       }
