@@ -5,7 +5,9 @@ export default defineConfig({
     presetUno(),
     presetWebFonts({
       fonts: {
-        sans: ['Inter'],
+        sans: {
+          name: 'Inter var',
+        },
       }
     }),
   ],

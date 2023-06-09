@@ -5,7 +5,7 @@ const minute = useState()
 function setTime() {
   const now = new Date()
   hour.value = now.getHours()
-  minute.value = now.getMinutes()
+  minute.value = String(now.getMinutes()).padStart(2, '0')
 }
 
 setTime()
@@ -16,7 +16,7 @@ if (process.client) {
 </script>
 
 <template>
-  <div class="font-sans font-900 text-white text-[15rem] tabular-nums tracking-tighter">
-    {{ hour }}:{{ minute }}
+  <div class="font-sans text-white text-[15rem] tabular-nums">
+    <span class="font-100 tracking-tighter">{{ hour }}</span><span class="font-500 mx-5">.</span><span class="font-100 tracking-tighter">{{ minute }}</span>
   </div>
 </template>
