@@ -4,7 +4,7 @@ const minute = useState()
 
 function setTime() {
   const now = new Date()
-  hour.value = now.getHours()
+  hour.value = now.getHours() || 12
   minute.value = String(now.getMinutes()).padStart(2, '0')
 }
 
