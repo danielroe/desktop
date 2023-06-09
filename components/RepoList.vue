@@ -21,7 +21,7 @@ const { data: repos } = await useAsyncData(async () => {
         },
         headers: { Authorization: `Bearer ${accessToken}` }
       }).catch(() => [])
-      console.log((data))
+
       if (data.length) {
         repos.push(...data.filter(r => r.stargazers_count > 30 && !r.fork))
       }
