@@ -6,7 +6,8 @@ export default defineConfig({
     presetWebFonts({
       fonts: {
         sans: {
-          name: 'Inter var',
+          name: 'Inter',
+          weights: [100, 500]
         },
       }
     }),
