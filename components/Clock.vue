@@ -1,20 +1,22 @@
 <script setup lang="ts">
-const now = new Date()
+const hour = useState()
+const minute = useState()
 
-const hour = useState(() => now.getHours())
-const minute = useState(() => now.getMinutes())
+function setTime() {
+  const now = new Date()
+  hour.value = now.getHours()
+  minute.value = now.getMinutes()
+}
+
+setTime()
 
 if (process.client) {
-  setInterval(() => {
-    const now = new Date()
-    hour.value = now.getHours()
-    minute.value = now.getMinutes()
-  }, 1000)
+  setInterval(setTime, 1000)
 }
 </script>
 
 <template>
-  <div class="font-sans font-bold text-white text-[15rem]">
+  <div class="font-sans font-900 text-white text-[15rem] tabular-nums tracking-tighter">
     {{ hour }}:{{ minute }}
   </div>
 </template>
