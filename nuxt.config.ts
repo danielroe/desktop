@@ -6,6 +6,6 @@ export default defineNuxtConfig({
     githubToken: '',
   },
   routeRules: {
-    '/api/**': { isr: 60 * 5, swr: 60 * 5 },
+    '/api/**': { isr: 60 * 60, swr: 60 * 60 },
   }
 })

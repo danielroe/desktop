@@ -92,5 +92,5 @@ export default defineCachedEventHandler(async event => {
       issues: r.open_issues as number,
       downloads: r.downloads ? formatter.format(r.downloads as number) : '',
       // ...process.dev && r,
-    })).slice(0, 25)
+    })).slice(0, 50)
 })

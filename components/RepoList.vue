@@ -1,7 +1,7 @@
 <script setup lang="ts">
 const { data: repos, error, refresh } = await useFetch('/api/repos')
 
-onMounted(() => setInterval(refresh, 1000 * 60 * 5))
+onMounted(() => setInterval(refresh, 1000 * 60 * 60))
 </script>
 
 <template>
