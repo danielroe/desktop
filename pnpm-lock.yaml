@@ -25,13 +25,13 @@ importers:
         version: 3.13.2(@parcel/watcher@2.4.1)(@types/node@20.17.1)(encoding@0.1.13)(eslint@9.13.0(jiti@2.3.3))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.24.0)(terser@5.17.6)(typescript@5.6.3)(vite@5.4.10(@types/node@20.17.1)(terser@5.17.6))(webpack-sources@3.2.3)
     devDependencies:
       '@types/node':
-        specifier: ^20.17.1
+        specifier: 20.17.1
         version: 20.17.1
       eslint:
         specifier: ^9.13.0
         version: 9.13.0(jiti@2.3.3)
       typescript:
-        specifier: ^5.6.3
+        specifier: 5.6.3
         version: 5.6.3
 
 packages:
