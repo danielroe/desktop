@@ -5,33 +5,46 @@ if (!accessToken) {
 }
 
 const monorepoMap = {
-  'danielroe/nuxt-vitest': 'vitest-environment-nuxt'
+  'danielroe/nuxt-vitest': 'vitest-environment-nuxt',
 }
 
-export default defineCachedEventHandler(async event => {
+export default defineEventHandler(async () => {
   const formatter = Intl.NumberFormat('en-GB', {
     notation: 'compact',
-    compactDisplay: 'short'
+    compactDisplay: 'short',
   })
 
-  const modules = ['partytown', 'harlem', 'fontaine', 'html-validator', 'turnstile', 'sanity']
+  const modules = [
+    'fontaine',
+    'html-validator',
+    'sanity',
+    'harlem',
+    'partytown',
+    'turnstile',
+    'hanko',
+    'kinde',
+    'critters',
+    'ionic',
+  ]
   const endpoints = ['https://api.github.com/users/danielroe/repos']
-  
+
   const repos = []
   for (const endpoint of endpoints) {
     let page = 1
+    // TODO: improve types
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     let data: any[]
     do {
       data = await $fetch(endpoint, {
         params: {
           page,
-          per_page: 100
+          per_page: 100,
         },
         headers: {
-          Accept: 'application/vnd.github.v3+json',
-          Authorization: `Bearer ${accessToken}`,
-          'User-Agent': 'Nuxt prerenderer'
-        }
+          'Accept': 'application/vnd.github.v3+json',
+          'Authorization': `Bearer ${accessToken}`,
+          'User-Agent': 'Nuxt prerenderer',
+        },
       }).catch((e) => {
         console.error(e)
         return []
@@ -46,21 +59,21 @@ export default defineCachedEventHandler(async event => {
 
   const extraRepos = [
     ...modules.map(m => `nuxt-modules/${m}`),
-    ...repos.map(p => p.repo).filter(Boolean)
+    ...repos.map(p => p.repo).filter(Boolean),
   ]
 
   for (const repo of extraRepos) {
     const data = await $fetch(`https://api.github.com/repos/${repo}`, {
       headers: {
-        Accept: 'application/vnd.github.v3+json',
-        Authorization: `Bearer ${accessToken}`,
-        'User-Agent': 'Nuxt prerenderer'
-      }
+        'Accept': 'application/vnd.github.v3+json',
+        'Authorization': `Bearer ${accessToken}`,
+        'User-Agent': 'Nuxt prerenderer',
+      },
     }).catch((e) => {
       console.error(e)
       return null
     })
-    
+
     if (data) {
       repos.push(data)
     }
@@ -75,7 +88,8 @@ export default defineCachedEventHandler(async event => {
     const pkg = packages.objects.find(pkg => pkg.package.links.repository && pkg.package.links.repository?.replace(/^.*github.com\/(.*)$/, '$1') === repo.full_name)
     if (pkg) {
       repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${pkg.package.name}`).then(r => r.downloads)
-    } else {
+    }
+    else {
       const packageJson = await $fetch(`https://raw.githubusercontent.com/${repo.full_name}/main/package.json`).then(r => JSON.parse(r)).catch(() => null)
       if (packageJson && !packageJson.private) {
         repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${packageJson.name}`).then(r => r.downloads)
@@ -92,5 +106,5 @@ export default defineCachedEventHandler(async event => {
       issues: r.open_issues as number,
       downloads: r.downloads ? formatter.format(r.downloads as number) : '',
       // ...process.dev && r,
-    })).slice(0, 50)
+    })).slice(0, 14)
 })

@@ -8,9 +8,9 @@ export default defineConfig({
       fonts: {
         sans: {
           name: 'Inter',
-          weights: [100, 400, 500]
+          weights: [100, 400, 500, 800],
         },
-      }
+      },
     }),
   ],
 })

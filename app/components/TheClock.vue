@@ -10,13 +10,13 @@ function setTime() {
 
 setTime()
 
-if (process.client) {
+if (import.meta.client) {
   setInterval(setTime, 1000)
 }
 </script>
 
 <template>
   <div class="font-sans text-[15rem] tabular-nums">
-    <span class="font-100 tracking-tighter">{{ hour }}</span><span class="font-500 mx-5">.</span><span class="font-100 tracking-tighter">{{ minute }}</span>
+    <span class="font-800 tracking-wide">{{ hour }}</span><span class="font-800 mx-4">.</span><span class="font-800 tracking-wide">{{ minute }}</span>
   </div>
 </template>
