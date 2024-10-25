@@ -20,5 +20,6 @@
     "@nuxt/eslint": "^0.6.0",
     "@unocss/nuxt": "^0.63.6",
     "nuxt": "^3.13.2"
-  }
+  },
+  "packageManager": "pnpm@9.12.2"
 }
