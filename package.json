@@ -11,9 +11,9 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/node": "^22.8.2",
+    "@types/node": "22.8.2",
     "eslint": "^9.13.0",
-    "typescript": "^5.6.3"
+    "typescript": "5.6.3"
   },
   "dependencies": {
     "@iconify-json/ri": "^1.2.2",

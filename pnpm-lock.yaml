@@ -25,13 +25,13 @@ importers:
         version: 3.13.2(@parcel/watcher@2.4.1)(@types/node@22.8.2)(encoding@0.1.13)(eslint@9.13.0(jiti@2.3.3))(ioredis@5.4.1)(magicast@0.3.5)(optionator@0.9.4)(rollup@4.24.0)(terser@5.36.0)(typescript@5.6.3)(vite@5.4.10(@types/node@22.8.2)(terser@5.36.0))(webpack-sources@3.2.3)
     devDependencies:
       '@types/node':
-        specifier: ^22.8.2
+        specifier: 22.8.2
         version: 22.8.2
       eslint:
         specifier: ^9.13.0
         version: 9.13.0(jiti@2.3.3)
       typescript:
-        specifier: ^5.6.3
+        specifier: 5.6.3
         version: 5.6.3
 
 packages:
@@ -1276,9 +1276,6 @@ packages:
 
   '@types/node@22.8.2':
     resolution: {integrity: sha512-NzaRNFV+FZkvK/KLCsNdTvID0SThyrs5SHB6tsD/lajr22FGC73N2QeDPM2wHtVde8mgcXuSsHQkH5cX1pbPLw==}
-
-  '@types/node@22.8.6':
-    resolution: {integrity: sha512-tosuJYKrIqjQIlVCM4PEGxOmyg3FCPa/fViuJChnGeEIhjA46oy8FMVoF9su1/v8PNs2a8Q0iFNyOx0uOF91nw==}
 
   '@types/normalize-package-data@2.4.4':
     resolution: {integrity: sha512-37i+OaWTh9qeK4LSHPsyRC7NahnGotNuZvjLSgcPzblpHB3rrCJxAOgI5gCdKm7coonsaX1Of0ILiTcnZjbfxA==}
@@ -5542,10 +5539,6 @@ snapshots:
     dependencies:
       undici-types: 6.19.8
 
-  '@types/node@22.8.6':
-    dependencies:
-      undici-types: 6.19.8
-
   '@types/normalize-package-data@2.4.4': {}
 
   '@types/resolve@1.20.2': {}
@@ -7403,7 +7396,7 @@ snapshots:
 
   jest-worker@27.5.1:
     dependencies:
-      '@types/node': 22.8.6
+      '@types/node': 22.8.2
       merge-stream: 2.0.0
       supports-color: 8.1.1
 
