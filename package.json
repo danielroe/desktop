@@ -19,7 +19,7 @@
     "@iconify-json/ri": "^1.2.2",
     "@nuxt/devtools": "latest",
     "@nuxt/eslint": "^0.6.0",
-    "@unocss/nuxt": "^0.63.6",
+    "@unocss/nuxt": "^0.64.0",
     "nuxt": "^3.13.2"
   },
   "packageManager": "pnpm@9.12.3"
