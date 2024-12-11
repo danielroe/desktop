@@ -13,7 +13,7 @@
   "devDependencies": {
     "@types/node": "22.9.0",
     "eslint": "9.14.0",
-    "typescript": "5.6.3"
+    "typescript": "5.7.2"
   },
   "dependencies": {
     "@iconify-json/ri": "^1.2.2",
