@@ -11,7 +11,7 @@
     "postinstall": "nuxt prepare"
   },
   "devDependencies": {
-    "@types/node": "22.17.1",
+    "@types/node": "22.18.4",
     "eslint": "9.29.0",
     "typescript": "5.9.2"
   },
@@ -22,5 +22,5 @@
     "@unocss/nuxt": "^0.65.0",
     "nuxt": "^3.13.2"
   },
-  "packageManager": "pnpm@10.14.0"
+  "packageManager": "pnpm@10.16.1"
 }
