@@ -82,17 +82,17 @@ export default defineEventHandler(async () => {
   const packages = await $fetch('https://registry.npmjs.org/-/v1/search?text=author:danielroe&size=1000')
   for (const repo of repos) {
     if (repo.full_name in monorepoMap) {
-      repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${monorepoMap[repo.full_name as keyof typeof monorepoMap]}`).then(r => r.downloads)
+      repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${monorepoMap[repo.full_name as keyof typeof monorepoMap]}`).then(r => r.downloads).catch(() => 0)
       continue
     }
     const pkg = packages.objects.find(pkg => pkg.package.links.repository && pkg.package.links.repository?.replace(/^.*github.com\/(.*)$/, '$1') === repo.full_name)
     if (pkg) {
-      repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${pkg.package.name}`).then(r => r.downloads)
+      repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${pkg.package.name}`).then(r => r.downloads).catch(() => 0)
     }
     else {
       const packageJson = await $fetch(`https://raw.githubusercontent.com/${repo.full_name}/main/package.json`).then(r => JSON.parse(r)).catch(() => null)
       if (packageJson && !packageJson.private) {
-        repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${packageJson.name}`).then(r => r.downloads)
+        repo.downloads = await $fetch(`https://api.npmjs.org/downloads/point/last-month/${packageJson.name}`).then(r => r.downloads).catch(() => 0)
       }
     }
   }
