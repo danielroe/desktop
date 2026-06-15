@@ -22,5 +22,5 @@
     "@unocss/nuxt": "^66.0.0",
     "nuxt": "^4.0.0"
   },
-  "packageManager": "pnpm@11.6.0"
+  "packageManager": "pnpm@11.7.0"
 }
