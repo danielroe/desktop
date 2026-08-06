@@ -17,7 +17,7 @@
   },
   "dependencies": {
     "@iconify-json/ri": "^1.2.2",
-    "@nuxt/devtools": "latest",
+    "@nuxt/devtools": "^3.4.1",
     "@nuxt/eslint": "^1.0.0",
     "@unocss/nuxt": "^66.0.0",
     "nuxt": "^4.0.0"

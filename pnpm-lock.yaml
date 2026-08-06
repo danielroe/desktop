@@ -12,7 +12,7 @@ importers:
         specifier: ^1.2.2
         version: 1.2.10
       '@nuxt/devtools':
-        specifier: latest
+        specifier: ^3.4.1
         version: 3.4.1(@vitejs/devtools@0.3.1)(db0@0.3.4)(ioredis@5.11.1(supports-color@10.2.2))(magic-string@1.1.0)(oxc-parser@0.140.0)(rolldown@1.2.0)(supports-color@10.2.2)(unplugin@3.3.0(esbuild@0.28.1)(rolldown@1.2.0)(rollup@4.62.3)(vite@8.1.5)(webpack@5.106.1(cssnano@8.0.2(postcss@8.5.23))(csso@5.0.5)(esbuild@0.28.1)(lightningcss@1.33.0)(postcss@8.5.23)))(vite@8.1.5)(vue@3.5.40(typescript@6.0.3))
       '@nuxt/eslint':
         specifier: ^1.0.0
