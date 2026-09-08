@@ -22,5 +22,16 @@
     "@unocss/nuxt": "^66.0.0",
     "nuxt": "^4.0.0"
   },
-  "packageManager": "pnpm@12.3.4"
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.0.0",
+      "onFail": "download"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.3.4",
+      "onFail": "download"
+    }
+  }
 }
